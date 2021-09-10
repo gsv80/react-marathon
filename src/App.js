@@ -16,14 +16,15 @@ const App=()=>{
         descr= 'This is description'
        />
       <Layout 
-        
         title='this is new title'
         desc='this is my desc'
         colorBG='green'
         urlBg={Bg1}
       />
       <Layout 
-      colorBg='#e2e2e2'
+        title=''
+        desc=''
+        colorBg='#e2e2e2'
       />
       <Layout 
         title='this is another title'
