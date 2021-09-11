@@ -1,7 +1,6 @@
 import s from "./style.module.css";
 
 const Layout = ({id, title, desc, colorBg, urlBg, children, ...props}) => {
-    // console.log('####: props', props);
     
     const backgroundSect={
             backgroundImage: 'url(' + urlBg + ')',

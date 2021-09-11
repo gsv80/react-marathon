@@ -3,13 +3,13 @@ import cardBackSide from '../../assets/card-back-side.jpg';
 import { useState } from 'react';
 
 const PokemonCard =({name, img, id, type, values}) => {
-    // console.log('####: props', props);
+    
     const [isActive,setActive] = useState(false);
 
-    // console.log('####: isActive', isActive);
+    
 
     const handleClick = () => {
-        setActive(true);
+        setActive(isActive ? false : true);
     };
 
 
