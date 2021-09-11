@@ -3,7 +3,7 @@ import s from "./style.module.css";
 const Footer = () => {
     return (
         <div className={s.wrapper}>
-            <h3>This is title</h3>
+            <h3>Some text..</h3>
             <p>© 2021 #ReactMarathon.</p>
         </div>
     
