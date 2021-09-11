@@ -9,7 +9,10 @@ const Layout = (props) => {
     };
     
     return (
-        <section className={s.root} style= { background }>
+        <section 
+            className={s.root} 
+            style= { background }
+        >
             <div className={s.wrapper} >
                 <article>
                     <div className={s.title}>

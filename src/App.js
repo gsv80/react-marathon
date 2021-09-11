@@ -5,6 +5,7 @@ import Layout from "./components/Layout";
 import Footer from './components/Footer';
 import Bg1 from './assets/bg1.jpg'
 import Bg3 from './assets/bg3.jpg'
+import s from './App.css';
 
 
 const App=()=>{
@@ -12,7 +13,7 @@ const App=()=>{
   return (
     <>
       <Header 
-        title= 'This is title' 
+        title= 'Pokemon Game' 
         descr= 'This is description'
        />
       <Layout 
