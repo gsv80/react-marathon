@@ -6,7 +6,7 @@ import Footer from './components/Footer';
 import PokemonCard from './components/PokemonCard';
 import Bg1 from './assets/bg1.jpg';
 import Bg3 from './assets/bg3.jpg';
-import POKEMONS from './components/Pokemons';
+import Pokemons from './data/Pokemons.json';
 
 const App=()=>{
   
@@ -41,7 +41,7 @@ const App=()=>{
       >
           <div className='flex'>
             {
-                POKEMONS.map((item, index) => 
+                Pokemons.map((item, index) => 
                   < 
                     PokemonCard 
                     key={item.id} type={item.type} img={item.img} name={item.name} values={item.values}

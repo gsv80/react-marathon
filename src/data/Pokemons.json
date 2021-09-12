@@ -1,5 +1,5 @@
 
-const POKEMONS =[
+[
     {
       "abilities": [
         "keen-eye",
@@ -134,4 +134,4 @@ const POKEMONS =[
     }
   ]
 
-  export default POKEMONS;
+  
