@@ -2,16 +2,15 @@ import { useState } from 'react';
 import cn from 'classnames';
 import s from './style.module.css'
 
-function NavBar( {onOpenBurger, isActive} ) {
+function NavBar( {burgerOpen, isActive, bgActive = false} ) {
 
     
 
-    const burgerOpen = () => {
-        onOpenBurger && onOpenBurger ();
-    }
 
     return (
-        <nav className={cn(s.root)}>
+        // <nav className={cn(s.root)}>
+        <nav id={s.navbar} className={cn(s.root, {[s.bgActive] : bgActive})}>
+
             <div className={cn(s.navWrapper)}>
                 <p className={cn(s.brand)}>
                     LOGO
