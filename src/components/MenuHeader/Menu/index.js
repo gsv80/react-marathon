@@ -7,22 +7,22 @@ import s from './style.module.css';
 
 const MENU =[
     { 
-        to: 'home',
+        to: '/home',
         title : 'HOME'
     },
 
     { 
-        to: 'game',
+        to: '/game',
         title : 'GAME'
     },
 
     { 
-        to: 'about',
+        to: '/about',
         title : 'ABOUT'
     },
 
     { 
-        to: 'contacts',
+        to: '/contacts',
         title : 'CONTACTS'
     },
 ];
