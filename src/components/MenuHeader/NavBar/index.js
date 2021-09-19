@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import cn from 'classnames';
 import s from './style.module.css'
 
@@ -15,9 +14,9 @@ function NavBar( {burgerOpen, isActive, bgActive = false} ) {
                 <p className={cn(s.brand)}>
                     LOGO
                 </p>
-                <a className={cn(s.menuButton, {[s.active] : isActive})} onClick = {burgerOpen}>
+                <div  className={cn(s.menuButton, {[s.active] : isActive})} onClick = {burgerOpen}>
                 <span />
-                </a>
+                </div>
             </div>
         </nav>
     )

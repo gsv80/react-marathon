@@ -1,13 +1,11 @@
 
 import Header from '../../components/Header';
 import Layout from "../../components/Layout";
-import PokemonCard from '../../components/PokemonCard';
+
 
 import Bg1 from '../../assets/bg1.jpg';
 import Bg3 from '../../assets/bg3.jpg';
-import Pokemons from '../../data/Pokemons.json';
 
-import s from './style.module.css';
 
 const HomePage = () => {
     

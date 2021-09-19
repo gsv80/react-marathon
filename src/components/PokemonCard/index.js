@@ -1,13 +1,13 @@
-import { useState } from 'react';
+
 import cn from 'classnames';
 
 import cardBackSide from '../../assets/card-back-side.jpg';
 import s from './style.module.css';
 
-const PokemonCard =({name, img, id, type, values, isActive, onClickedCard}) => {
+const PokemonCard =({name, img, id, type, values, isActive, onClickedCard, objID}) => {
     
     const onClickCard = () =>{
-        onClickedCard && onClickedCard(id);
+        onClickedCard && onClickedCard(id, objID);
     }
 
     return (
