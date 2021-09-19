@@ -9,19 +9,15 @@ import Pokemons from '../../data/Pokemons.json';
 
 import s from './style.module.css';
 
-const HomePage = ({ onChangePage })=>{
+const HomePage = () => {
     
-  const handleClickButton = (page) => {
-      onChangePage && onChangePage(page);
-  }
-
   return (
     <>
       
       <Header 
         title= 'Pokemon Game' 
         desc= 'This is simple triple triad card game'
-        onClickButton = {handleClickButton}
+        
        />
 
       <Layout 

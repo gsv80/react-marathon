@@ -1,39 +1,60 @@
 import { useState } from 'react';
+import { useHistory } from 'react-router';
 import s from './style.module.css';
 
 import PokemonCard from '../../components/PokemonCard';
 import Layout from "../../components/Layout";
 import Pokemons from '../../data/Pokemons.json';
 
-const GamePage = ({ onChangePage, active, handleCardClick }) => {
+const GamePage = () => {
+    
+    const [pokemons, setPokemons] = useState(Pokemons.slice(0,5));
+    
 
-    const [pokemonArr, setArr] = useState(Pokemons);
+    const  handleChangeActive = (id) => {
+        setPokemons(prev => 
+            prev.map(item => 
+                item.id === id ? 
+                {...item, active: !item.active} : 
+                item)
+            );
+    };
 
     
 
-    const handleClick =() => {
-        onChangePage && onChangePage('app');
+    const history = useHistory();
+    const handleClick = () => {
+        history.push('/');
     }
+
     return (
         <div>
-            <p>This is Game Page!!!</p>
+            
             <>
             <Layout 
-        id='cards'
-        title='Cards'
-        desc='here`s gonna cards'
-        colorBg='#e2e2e2'
-      >
-          <div className='flex'>
-            {
-                Pokemons.map((item, index) => 
-                  < 
-                    PokemonCard 
-                    key={item.id} type={item.type} img={item.img} name={item.name} values={item.values} item={item.item}
-                  /> 
-                )
-              }
-          </div>
+                id='cards'
+                title='Cards'
+                desc='here`s gonna cards'
+                colorBg='#e2e2e2'
+                
+            >
+            <div className={s.flex}>
+                {
+                    pokemons.map(({name, img, id, type, values, active}) => (
+                    < 
+                        PokemonCard 
+                            key={id} 
+                            name={name}
+                            type={type} 
+                            img={img} 
+                            id={id} 
+                            values={values} 
+                            isActive={active}
+                            onClickedCard={ handleChangeActive }
+                    /> 
+                    ))
+                }
+            </div>
       </Layout>
             </>
             <button onClick = {handleClick}>
