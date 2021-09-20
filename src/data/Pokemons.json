@@ -14,6 +14,7 @@
         "special-defense": 50,
         "speed": 71
       },
+      "active" : false,
       "type": "flying",
       "img": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/17.png",
       "name": "pidgeotto",
@@ -25,7 +26,7 @@
         "right": 2,
         "bottom": 7,
         "left": 5
-      }
+      }      
     },
     {
       "abilities": [
@@ -52,7 +53,8 @@
         "right": 9,
         "bottom": "A",
         "left": "A"
-      }
+      },
+      "active" : false
     },
     {
       "abilities": [
@@ -78,7 +80,8 @@
         "right": "A",
         "bottom": 9,
         "left": 6
-      }
+      },
+      "active" : false
     },
     {
       "abilities": [
@@ -104,7 +107,8 @@
         "right": 4,
         "bottom": 2,
         "left": 7
-      }
+      },
+      "active" : false
     },
     {
       "abilities": [
@@ -130,7 +134,8 @@
         "right": 6,
         "bottom": 1,
         "left": 4
-      }
+      },
+      "active" : false
     }
   ]
 

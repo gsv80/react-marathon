@@ -13,17 +13,12 @@ function MenuHeader({bgActive}) {
 
     return (
         <div>
-            <Menu 
-                isActive ={isActive}
-                
-                
-                />
+            <Menu isActive ={isActive} />
             
             <NavBar 
                 isActive ={isActive}
                 burgerOpen = {burgerChanged}
                 bgActive = {bgActive}
-            
             />
         </div>
     )

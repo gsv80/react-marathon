@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import s from "./style.module.css";
 
-const Layout = ({id, title, desc, colorBg, urlBg, children, ...props}) => {
+const Layout = ({id, title, desc, colorBg, urlBg, children}) => {
     
     const backgroundSect={
             backgroundImage: 'url(' + urlBg + ')',
@@ -14,6 +14,7 @@ const Layout = ({id, title, desc, colorBg, urlBg, children, ...props}) => {
         <section 
             className={s.root} 
             style= { backgroundSect }
+            // handleClicked= {handleClicked}
         >
             <div className={s.wrapper} >
                 <article>
