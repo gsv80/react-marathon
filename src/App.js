@@ -1,9 +1,8 @@
 
-import { useRouteMatch, Route, Switch, Redirect } from "react-router-dom";
+import { useLocation, useRouteMatch, Route, Switch, Redirect } from "react-router-dom";
 
 
 import cn from 'classnames';
-import s from '../../react-marathon/src/style.module.css';
 import './App.css';
 
 
@@ -15,18 +14,27 @@ import About from '../../react-marathon/src/routes/About'
 import Contact from '../../react-marathon/src/routes/Contact';
 import Notfound from '../../react-marathon/src/routes/Notfound';
 
+import s from '../../react-marathon/src/style.module.css';
+import { FireBaseContext } from "./context/firebaseContext";
+import Firebase from "./services/firebase";
+
 
 const App = () =>{
-  const match=useRouteMatch('/');
-  
+  const location=useLocation();
+  const isPadding = location.pathname === '/' ||  location.pathname === '/game/board';
+  const match = useRouteMatch ('/');
   return (
+
+    <FireBaseContext.Provider value={new Firebase()}>
+
+    
     <Switch>
       <Route path='/404' component = {Notfound} />
         <Route>
         <>
-          <MenuHeader bgActive={!match.isExact}/>
+          <MenuHeader bgActive={!isPadding}/>
           <div className = {cn(s.wrap, {
-            [s.isHomePage] : match.isExact
+            [s.isHomePage] : isPadding
           })}>
             <Switch>
               <Route path = "/" exact component = {HomePage} />
@@ -45,6 +53,7 @@ const App = () =>{
       </Route>
     </Switch>
 
+    </FireBaseContext.Provider>
 
         
   )
