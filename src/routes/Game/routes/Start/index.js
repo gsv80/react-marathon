@@ -2,7 +2,7 @@ import { useState, useEffect, useContext  } from 'react';
 import { useHistory } from 'react-router';
 
 import PokemonCard from '../../../../components/PokemonCard';
-import Firebase from '../../../../services/firebase';
+
 
 import s from './style.module.css';
 
@@ -23,8 +23,12 @@ const StartPage = () => {
     }, []);
 
     const  handleChangeSelected = (key) => {
+       
         const pokemon = {...pokemons[key]};
         pokemonsContext.onSelectedPokemons(key, pokemon);
+
+        console.log('####:pokemonContext', Object.keys(pokemons));
+
         setPokemons(prev => ({
             ...prev,
             [key]:{
@@ -64,9 +68,9 @@ const StartPage = () => {
                                 id={id} 
                                 values={values} 
                                 isActive={true}
-                                className={s.card}
                                 isSelected={selected}
-                                onClickedCard={()=> {
+                                onClickCard={()=> {
+
                                     if (Object.keys(pokemonsContext.pokemons).length <5 || selected){
                                         handleChangeSelected(key) ;
                                     }

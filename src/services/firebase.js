@@ -20,16 +20,14 @@ const firebaseConfig = {
       this.database=this.fire.database();
     }
 
-    getPokemonSocket =(cb) =>{
-     this.database.ref('pokemons').
-     on ('value', (snapshot) => {
+    getPokemonSocket =(cb) => {
+     this.database.ref('pokemons').on('value', (snapshot) => {
          cb(snapshot.val());
      });
    }
   
-   offPokemonSocket =() =>{
-    this.database.ref('pokemons')
-    .off();
+   offPokemonSocket =() => {
+    this.database.ref('pokemons').off();
   }
   getPokemonsOnce = async () => {
    return await this.database.ref('pokemons')

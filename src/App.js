@@ -1,5 +1,4 @@
-
-import { useLocation, useRouteMatch, Route, Switch, Redirect } from "react-router-dom";
+import { useLocation, Route, Switch, Redirect } from "react-router-dom";
 
 
 import cn from 'classnames';
@@ -22,7 +21,7 @@ import Firebase from "./services/firebase";
 const App = () =>{
   const location=useLocation();
   const isPadding = location.pathname === '/' ||  location.pathname === '/game/board';
-  const match = useRouteMatch ('/');
+ 
   return (
 
     <FireBaseContext.Provider value={new Firebase()}>

@@ -1,6 +1,6 @@
 import cn from 'classnames';
 
-import cardBackSide from '../../assets/card-back-side.jpg';
+// import cardBackSide from '../../assets/card-back-side.jpg';
 
 import s from './style.module.css';
 
