@@ -1,17 +1,21 @@
 import { useRouteMatch, Switch, Route } from "react-router-dom";
+import { useState } from "react";
 
 import StartPage from "./routes/Start";
 import BoardPage from "./routes/Board";
 import FinishPage from "./routes/Finish";
 import {PokemonContext} from '../../context/pokemonContext';
-import { useState } from "react/cjs/react.development";
 
 const GamePage = () => {
     const [selectedPokemons, setSelectedPokemons] = useState({});
     
     const match = useRouteMatch();
+    
 
     const handleSelectedPokemons =(key, pokemon) =>{
+        console.log('####:handleSelectedPokemons');
+        console.log('####:keys', key);
+        console.log('####:pokemon', pokemon);
         
         setSelectedPokemons(prev => {
             if (prev[key]) {

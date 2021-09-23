@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext  } from 'react';
-import { useHistory } from 'react-router';
+import { useHistory } from 'react-router-dom';
 
 import PokemonCard from '../../../../components/PokemonCard';
 
@@ -12,6 +12,7 @@ import { PokemonContext } from '../../../../context/pokemonContext';
 const StartPage = () => {
     const firebase = useContext(FireBaseContext);
     const pokemonsContext= useContext(PokemonContext);
+    // console.log('####:pokemonsContext', pokemonsContext);
     const history=useHistory();
     const [pokemons, setPokemons] = useState({});
     
@@ -22,12 +23,12 @@ const StartPage = () => {
         return () => firebase.offPokemonSocket();
     }, []);
 
-    const  handleChangeSelected = (key) => {
+    const handleChangeSelected = (key) => {
        
         const pokemon = {...pokemons[key]};
         pokemonsContext.onSelectedPokemons(key, pokemon);
 
-        console.log('####:pokemonContext', Object.keys(pokemons));
+        // console.log('####:pokemonContext', Object.keys(pokemons));
 
         setPokemons(prev => ({
             ...prev,
@@ -49,7 +50,7 @@ const StartPage = () => {
                 <div className={s.buttonWrap}>
                     <button  
                     onClick={handlerStartGameClick}
-                    disabled = {Object.keys(pokemonsContext).length <5}
+                    disabled = {Object.keys(pokemonsContext.pokemons).length <5}
                     >
                         Start Game
                     </button>
@@ -72,7 +73,7 @@ const StartPage = () => {
                                 onClickCard={()=> {
 
                                     if (Object.keys(pokemonsContext.pokemons).length <5 || selected){
-                                        handleChangeSelected(key) ;
+                                    handleChangeSelected(key) ;
                                     }
                                 }}
                         /> 

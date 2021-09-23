@@ -9,6 +9,7 @@ import s from './style.module.css';
 const BoardPage = () => {
 
     const {pokemons}= useContext(PokemonContext);
+    console.log('####: pokemonContext', PokemonContext);
     const history = useHistory();
 
     if (Object.keys(pokemons).length === 0) {
@@ -27,8 +28,7 @@ const BoardPage = () => {
                                     name={name}
                                     type={type} 
                                     img={img} 
-                                    id={id} 
-                                    values={values} 
+                                    id={id}                                     values={values} 
                                     minimize
                                     isActive
                                     
