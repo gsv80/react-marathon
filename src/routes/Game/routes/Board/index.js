@@ -5,9 +5,10 @@ import cn from 'classnames';
 import PokemonCard from '../../../../components/PokemonCard';
 import PlayerBoard from './component/playerBoard';
 import { PokemonContext } from '../../../../context/pokemonContext';
+import { player2context } from '../../../../context/usedCardsContext';
 
 import s from './style.module.css';
-import { computeHeadingLevel } from '@testing-library/dom';
+
 
 const counterWin = (board, player1, player2)=>{
     let player1Count = player1.length;
@@ -30,6 +31,13 @@ const counterWin = (board, player1, player2)=>{
 const BoardPage = () => {
     
     const {pokemons}= useContext(PokemonContext);
+    const {player2context}= useContext(PokemonContext);
+
+
+
+    // const [usedCards, setUsedCards] = useContext(UsedCardsContext);
+    // console.log('####: usedCards :', usedCards)
+
     const [board,setBoard] = useState([]);
     const [player1,setPlayer1] = useState(() => {
         return Object.values(pokemons).map((item) => ({
@@ -45,26 +53,34 @@ const BoardPage = () => {
     const history = useHistory();
     
     console.log('####: player2', player2);
+
+    
+   
      
     useEffect( async () => {
         const boardResponse = await fetch('https://reactmarathon-api.netlify.app/api/board');
         const boardRequest = await boardResponse.json();
 
-    setBoard(boardRequest.data);
+        setBoard(boardRequest.data);
 
-    const player2Response = await fetch('https://reactmarathon-api.netlify.app/api/create-player');
-    const player2Request = await player2Response.json();
+        const player2Response = await fetch('https://reactmarathon-api.netlify.app/api/create-player');
+        const player2Request = await player2Response.json();
 
-    console.log('#### player2Request:', player2Request.data);
+        console.log('#### player2Request:', player2Request.data);
 
-    setPlayer2(() => {
-        return player2Request.data.map((item) => ({
-            ...item, 
-            possession : "red",
-        }))
-    });
+        
 
-},[])
+        setPlayer2(() => {
+            return player2Request.data.map((item) => ({
+                ...item, 
+                possession : "red",
+            }))
+        });
+
+        
+        
+
+    },[])
  
     if (Object.keys(pokemons).length === 0) {
         history.replace('/game');
@@ -111,7 +127,12 @@ const BoardPage = () => {
         }
     }
 
+   
+
+
     useEffect(() => {
+        
+        
         if(steps===9){
             const [count1, count2] = counterWin(board, player1, player2);
 
@@ -122,9 +143,12 @@ const BoardPage = () => {
             } else {
                 alert('DRAW');
             }
-            history.replace('/finish');
+            
+            history.push('/game/finish');
         }
     }, [steps]);
+
+
 
     return (
         <div className={s.root}>

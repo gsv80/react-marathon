@@ -16,6 +16,7 @@ import Notfound from '../../react-marathon/src/routes/Notfound';
 import s from '../../react-marathon/src/style.module.css';
 import { FireBaseContext } from "./context/firebaseContext";
 import Firebase from "./services/firebase";
+import { UsedCardsProvider } from "./context/usedCardsContext";
 
 
 const App = () =>{
@@ -25,7 +26,7 @@ const App = () =>{
   return (
 
     <FireBaseContext.Provider value={new Firebase()}>
-
+    <UsedCardsProvider>
     
     <Switch>
       <Route path='/404' component = {Notfound} />
@@ -51,7 +52,7 @@ const App = () =>{
         </>
       </Route>
     </Switch>
-
+    </UsedCardsProvider>
     </FireBaseContext.Provider>
 
         
